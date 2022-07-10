@@ -26,7 +26,7 @@
 
 1. Create or launch **MongoDB** database using **Docker**
 2. Clone repository with microservices to your app **https://github.com/Ksarelto/node-graphql-service.git**
-3. Checkout to branch master
+3. Checkout to branch main
 4. Follow guide in **README.md** file (in this repository) to instal dependencies and run microservices
 5. Run microservices using guide
 
