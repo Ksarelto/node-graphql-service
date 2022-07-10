@@ -17,7 +17,6 @@ import { errorMessage } from './common/error.parser';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      typePaths: ['./**/*.graphql'],
       autoSchemaFile: true,
       formatError: (error: GraphQLError) => {
         return errorMessage(error);
