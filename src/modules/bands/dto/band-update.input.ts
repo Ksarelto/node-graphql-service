@@ -1,14 +1,26 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, ID, InputType } from '@nestjs/graphql';
 
 @InputType()
 class MemberUpdateInput {
-  @Field()
+  @Field(() => ID, { nullable: true })
   artist: string;
 
-  @Field()
+  @Field({ nullable: true })
+  firstName: string;
+
+  @Field({ nullable: true })
+  secondName: string;
+
+  @Field({ nullable: true })
+  middleName: string;
+
+  @Field({ nullable: true })
+  country: string;
+
+  @Field({ nullable: true })
   instrument: string;
 
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   years: string[];
 }
 

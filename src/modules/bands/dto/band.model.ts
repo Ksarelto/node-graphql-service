@@ -3,13 +3,25 @@ import { Genre } from 'src/modules/genres/dto/genre.model';
 
 @ObjectType()
 class Member {
-  @Field()
+  @Field(() => ID)
   artist: string;
 
-  @Field()
+  @Field({ nullable: true })
+  firstName: string;
+
+  @Field({ nullable: true })
+  secondName: string;
+
+  @Field({ nullable: true })
+  middleName: string;
+
+  @Field({ nullable: true })
+  country: string;
+
+  @Field({ nullable: true })
   instrument: string;
 
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   years: string[];
 }
 

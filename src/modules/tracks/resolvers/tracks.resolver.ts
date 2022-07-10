@@ -9,6 +9,8 @@ import {
 } from '@nestjs/graphql';
 import { QueryParams } from 'src/common/query.params';
 import { RequestToken } from 'src/common/request-token.decorator';
+import { AlbumsService } from 'src/modules/albums/albums.service';
+import { Album } from 'src/modules/albums/dto/album.model';
 import { ArtistsService } from 'src/modules/artists/artists.service';
 import { Artist } from 'src/modules/artists/dto/artist.module';
 import { JwtAuthGuard } from 'src/modules/auth/auth-guard';
@@ -28,6 +30,7 @@ export class TracksResolver {
     private bandsService: BandsService,
     private artistsService: ArtistsService,
     private genresService: GenresService,
+    private albumsService: AlbumsService,
   ) {}
 
   @Query(() => Track)
@@ -103,5 +106,11 @@ export class TracksResolver {
       }),
     );
     return genres;
+  }
+
+  @ResolveField(() => Album)
+  async album(@Parent() track: TrackInput) {
+    const album = await this.albumsService.getAlbum(track.albumId);
+    return album;
   }
 }

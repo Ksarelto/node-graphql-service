@@ -12,7 +12,7 @@ export class Track {
   @Field()
   title: string;
 
-  @Field({ nullable: true })
+  @Field(() => Album, { nullable: true })
   album: Album;
 
   @Field(() => [Band], { nullable: 'itemsAndList' })
